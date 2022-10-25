@@ -126,7 +126,8 @@ u64 _slide_get_boost_load(int cpu) {
 #endif
 #endif /* OPLUS_FEATURE_SCHED_ASSIST */
 
-void adjust_sched_assist_input_ctrl() {
+void adjust_sched_assist_input_ctrl(void);
+void adjust_sched_assist_input_ctrl(void) {
 	if (!sysctl_input_boost_enabled)
 		return;
 
