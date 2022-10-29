@@ -27,9 +27,9 @@ config SND_SOC_AW87XXX
 #endif /* OPLUS_ARCH_EXTENDS */
 
 #ifdef OPLUS_BUG_COMPATIBILITY
-config SND_SOC_DBMDX
-	bool "Use DBMDX As Sound Card"
-	default n
+# config SND_SOC_DBMDX
+#	bool "Use DBMDX As Sound Card"
+#	default n
 
 source sound/soc/codecs/audio/dbmdx/Kconfig
 #endif /* OPLUS_BUG_COMPATIBILITY */
