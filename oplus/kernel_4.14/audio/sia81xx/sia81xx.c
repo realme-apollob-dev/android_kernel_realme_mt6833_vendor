@@ -449,7 +449,7 @@ static int sia81xx_owi_write_one_bit(
 	ret = __gpio_produce_one_pulse_cycle(sia81xx->owi_pin, 
 		sia81xx->owi_polarity, duty_time_us, idle_time_us, 
 		real_duty_ns, real_idle_ns);
-	
+
 	return ret;
 }
 
@@ -1651,11 +1651,13 @@ static int sia81xx_volme_boost_set(
 	return 0;
 }
 
-void sia81xx_start(){
+static void sia81xx_start(void)
+{
         sia81xx_resume(g_sia81xx);
 }
 
-void sia81xx_stop(){
+static void sia81xx_stop(void)
+{
         sia81xx_suspend(g_sia81xx);
 }
 #endif /* OPLUS_BUG_COMPATIBILITY */
@@ -2560,9 +2562,9 @@ static struct platform_driver si_sia81xx_dev_driver = {
  ********************************************************************/
 
 static int __init sia81xx_pa_init(void) 
-{	
+{
 	int ret = 0;
-	
+
 	pr_info("[ info][%s] %s: sia81xx driver version : %s \r\n", 
 		LOG_FLAG, __func__, SIA81XX_DRIVER_VERSION);
 
@@ -2594,7 +2596,7 @@ static int __init sia81xx_pa_init(void)
 			LOG_FLAG, __func__, ret);
 		return ret;
 	}
-	
+
 	return 0;
 }
 
@@ -2616,7 +2618,7 @@ static void __exit sia81xx_pa_exit(void)
 	}
 
 	sia81xx_timer_task_exit();
-	
+
 	i2c_del_driver(&si_sia81xx_i2c_driver);
 
 	platform_driver_unregister(&si_sia81xx_dev_driver);

@@ -1659,7 +1659,7 @@ void tp_gpio_current_leakage_handler(bool normal)
 }
 EXPORT_SYMBOL(tp_gpio_current_leakage_handler);
 
-bool tp_boot_mode_normal()
+static bool tp_boot_mode_normal(void)
 {
     if (!g_tp) {
         return false;
